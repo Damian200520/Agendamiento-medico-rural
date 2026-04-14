@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+:root {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  color: #0f172a;
+  background: #dfe9f5;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: #0f172a;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(14, 165, 233, 0.28), transparent 20%),
+    radial-gradient(circle at 82% 18%, rgba(37, 99, 235, 0.24), transparent 18%),
+    radial-gradient(circle at 18% 82%, rgba(16, 185, 129, 0.16), transparent 18%),
+    radial-gradient(circle at 78% 78%, rgba(99, 102, 241, 0.16), transparent 22%),
+    linear-gradient(145deg, #f8fbff 0%, #eaf2fb 38%, #dde8f5 68%, #d4e0ef 100%);
+  background-attachment: fixed;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Capa animada principal */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -10%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.16), transparent 20%),
+    radial-gradient(circle at 80% 25%, rgba(6, 182, 212, 0.14), transparent 18%),
+    radial-gradient(circle at 30% 80%, rgba(16, 185, 129, 0.12), transparent 18%),
+    radial-gradient(circle at 75% 75%, rgba(99, 102, 241, 0.12), transparent 20%);
+  filter: blur(30px);
+  animation: floatBackground 20s ease-in-out infinite alternate;
+  opacity: 0.95;
+}
+
+/* Luz superior suave */
+body::after {
+  content: "";
+  position: fixed;
+  left: 50%;
+  top: -220px;
+  transform: translateX(-50%);
+  width: 920px;
+  height: 520px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.16) 45%,
+    transparent 72%
+  );
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(20px);
+  animation: pulseGlow 10s ease-in-out infinite;
+}
+
+/* Todo el contenido sobre el fondo */
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@keyframes floatBackground {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  25% {
+    transform: translate3d(18px, -12px, 0) scale(1.03);
+  }
+  50% {
+    transform: translate3d(-10px, 14px, 0) scale(1.05);
+  }
+  75% {
+    transform: translate3d(14px, 10px, 0) scale(1.02);
+  }
+  100% {
+    transform: translate3d(-16px, -10px, 0) scale(1.04);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    opacity: 0.7;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.04);
+  }
+  100% {
+    opacity: 0.75;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+/* Respeto por accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
