@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Card from "../components/ui/Card";
 import Input from "../components/ui/Input";
 import Button from "../components/ui/Button";
+import BackButton from "../components/ui/BackButton";
 import { signUpWithEmail } from "../services/authService";
 
 export default function RegisterPage() {
@@ -96,6 +97,10 @@ export default function RegisterPage() {
   return (
     <main className="min-h-screen px-4 py-8">
       <div className="mx-auto max-w-5xl">
+        <div className="mb-4">
+          <BackButton label="Volver al inicio" />
+        </div>
+
         <div className="mb-6 text-center">
           <div className="mx-auto mb-3 inline-flex rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-700">
             Registro de usuario
@@ -173,7 +178,7 @@ export default function RegisterPage() {
                   id="role"
                   value={form.role}
                   onChange={handleChange}
-                  className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-800 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-100"
+                  className="w-full rounded-2xl border border-white/80 bg-white/80 px-4 py-3 text-base text-slate-800 shadow-[0_8px_25px_rgba(15,23,42,0.05)] backdrop-blur transition focus:border-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-100"
                 >
                   <option value="patient">Paciente</option>
                   <option value="staff">Personal médico / administrativo</option>

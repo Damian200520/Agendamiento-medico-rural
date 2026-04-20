@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Card from "../components/ui/Card";
 import Button from "../components/ui/Button";
+import BackButton from "../components/ui/BackButton";
+import AppHeader from "../components/layout/AppHeader";
 import useNetworkStatus from "../hooks/useNetworkStatus";
 import {
   clearPendingActions,
@@ -40,17 +42,14 @@ export default function OfflineStatusPage() {
   return (
     <main className="min-h-screen px-4 py-6">
       <div className="mx-auto max-w-5xl">
-        <div className="mb-6 rounded-[2rem] bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 p-6 text-white shadow-xl">
-          <div className="mb-3 inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold backdrop-blur">
-            Estado offline
-          </div>
-          <h1 className="text-3xl font-black tracking-tight">
-            Conectividad y sincronización
-          </h1>
-          <p className="mt-2 max-w-2xl text-sm text-orange-50">
-            Consulta el estado de tu conexión y revisa si existen solicitudes pendientes.
-          </p>
+        <div className="mb-4">
+          <BackButton />
         </div>
+
+        <AppHeader
+          title="Estado offline"
+          subtitle="Consulta el estado de tu conexión y revisa si existen solicitudes pendientes."
+        />
 
         {message && (
           <div className="mb-4 rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm font-medium text-slate-700">

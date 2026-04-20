@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "../components/ui/Card";
 import Button from "../components/ui/Button";
+import BackButton from "../components/ui/BackButton";
 import AppHeader from "../components/layout/AppHeader";
 import { addPendingAction } from "../db/offlineQueue";
 import useNetworkStatus from "../hooks/useNetworkStatus";
@@ -107,6 +108,10 @@ export default function AppointmentsPage() {
   return (
     <main className="min-h-screen px-4 py-6">
       <div className="mx-auto max-w-6xl">
+        <div className="mb-4">
+          <BackButton />
+        </div>
+
         <AppHeader
           title="Agenda de citas"
           subtitle="Selecciona un horario médico disponible para reservar tu atención."

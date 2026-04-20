@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Agendamiento Médico Rural</string>
+    <string name="title_activity_main">Agendamiento Médico Rural</string>
+    <string name="package_name">com.damian.agendamientorural</string>
+    <string name="custom_url_scheme">com.damian.agendamientorural</string>
+</resources>
